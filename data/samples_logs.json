@@ -1,0 +1,102 @@
+[
+  {
+    "incident_id": "INC-001",
+    "timestamp": "2024-01-03T08:30:00Z",
+    "pipeline": "customer_orders_etl",
+    "error_type": "NullValueError",
+    "affected_table": "orders",
+    "affected_columns": ["customer_id", "shipping_address"],
+    "error_message": "Null values detected in non-nullable columns. 1,243 rows affected out of 50,000 total rows.",
+    "severity": "HIGH"
+  },
+  {
+    "incident_id": "INC-002",
+    "timestamp": "2024-01-07T10:15:00Z",
+    "pipeline": "inventory_sync",
+    "error_type": "SchemaMismatch",
+    "affected_table": "inventory_items",
+    "affected_columns": ["unit_price"],
+    "error_message": "Expected data type FLOAT, received STRING. Pipeline aborted at transformation step.",
+    "severity": "CRITICAL"
+  },
+  {
+    "incident_id": "INC-003",
+    "timestamp": "2024-01-11T13:45:00Z",
+    "pipeline": "user_events_stream",
+    "error_type": "LateArrivingData",
+    "affected_table": "user_events",
+    "affected_columns": ["event_timestamp"],
+    "error_message": "Events arriving 6 hours past SLA window. 3,500 records flagged as late. Downstream dashboards showing stale data.",
+    "severity": "MEDIUM"
+  },
+  {
+    "incident_id": "INC-004",
+    "timestamp": "2024-01-14T09:00:00Z",
+    "pipeline": "payments_pipeline",
+    "error_type": "NullValueError",
+    "affected_table": "transactions",
+    "affected_columns": ["payment_method", "transaction_id"],
+    "error_message": "Null values found in transaction_id for 876 rows. Payment reconciliation halted.",
+    "severity": "CRITICAL"
+  },
+  {
+    "incident_id": "INC-005",
+    "timestamp": "2024-01-18T15:20:00Z",
+    "pipeline": "product_catalog_sync",
+    "error_type": "SchemaMismatch",
+    "affected_table": "products",
+    "affected_columns": ["stock_count"],
+    "error_message": "Expected INTEGER, received FLOAT. 4,200 product records failed schema validation.",
+    "severity": "HIGH"
+  },
+  {
+    "incident_id": "INC-006",
+    "timestamp": "2024-01-22T07:45:00Z",
+    "pipeline": "user_events_stream",
+    "error_type": "LateArrivingData",
+    "affected_table": "user_events",
+    "affected_columns": ["event_timestamp"],
+    "error_message": "Events delayed by 9 hours due to upstream Kafka consumer lag. 7,800 records outside SLA window.",
+    "severity": "HIGH"
+  },
+  {
+    "incident_id": "INC-007",
+    "timestamp": "2024-01-26T11:30:00Z",
+    "pipeline": "customer_orders_etl",
+    "error_type": "NullValueError",
+    "affected_table": "orders",
+    "affected_columns": ["delivery_date"],
+    "error_message": "Null delivery_date in 2,100 rows. Order tracking system downstream reporting incomplete records.",
+    "severity": "MEDIUM"
+  },
+  {
+    "incident_id": "INC-008",
+    "timestamp": "2024-01-30T14:00:00Z",
+    "pipeline": "finance_reporting_etl",
+    "error_type": "SchemaMismatch",
+    "affected_table": "ledger_entries",
+    "affected_columns": ["amount", "currency_code"],
+    "error_message": "currency_code column received INTEGER instead of VARCHAR. 560 ledger entries rejected during load.",
+    "severity": "CRITICAL"
+  },
+  {
+    "incident_id": "INC-009",
+    "timestamp": "2024-02-04T06:15:00Z",
+    "pipeline": "clickstream_ingestion",
+    "error_type": "LateArrivingData",
+    "affected_table": "clickstream_events",
+    "affected_columns": ["click_timestamp"],
+    "error_message": "Batch ingestion delayed by 12 hours. 15,000 clickstream events missed the reporting window.",
+    "severity": "HIGH"
+  },
+  {
+    "incident_id": "INC-010",
+    "timestamp": "2024-02-09T16:45:00Z",
+    "pipeline": "user_profile_sync",
+    "error_type": "NullValueError",
+    "affected_table": "user_profiles",
+    "affected_columns": ["email", "phone_number"],
+    "error_message": "Null values in email and phone_number for 3,300 user records. CRM sync failed for affected users.",
+    "severity": "HIGH"
+  }
+]

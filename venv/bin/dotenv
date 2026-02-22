@@ -1,0 +1,10 @@
+#!/bin/sh
+'''exec' "/Users/venkatshreenidhir/Desktop/ONLY ONE FOLDER REMAINS GEEZ/Resume projects /Resume 2026/data_quality_analyser/venv/bin/python" "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
+import sys
+from dotenv.__main__ import cli
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(cli())
