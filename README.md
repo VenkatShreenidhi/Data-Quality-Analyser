@@ -101,3 +101,11 @@ http://127.0.0.1:8000/docs
 - Prompt engineering is isolated in `prompt.py` so it can be improved independently
 - LLM connection is isolated in `llm.py` so the model can be swapped without touching other files
 - Uses local LLM (Ollama) — no API costs, no data sent externally
+
+## Future Enhancements
+
+- [ ] PDF export for RCA reports
+- [ ] Batch analysis endpoint to analyze all incidents at once
+- [ ] Streamlit dashboard for visual report viewing
+- [ ] Summary endpoint showing most common error types and trends
+- [ ] Slack/email notification when a CRITICAL incident is analyzed
